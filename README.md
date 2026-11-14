@@ -30,6 +30,11 @@ removing an earlier beta. The direct edition keeps separate local app data.
 If you installed Traverse manually, finish your work and quit it before changing
 installation methods. Homebrew may refuse to replace an existing application;
 keep its data and avoid force or zap options just to get past that check.
+For an identical existing app, Homebrew can adopt it with:
+
+```sh
+brew install --cask --adopt respawn-studios/tap/traverse
+```
 
 ## Source and help
 
