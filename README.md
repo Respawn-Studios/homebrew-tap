@@ -7,8 +7,9 @@ brew install --cask respawn-studios/tap/traverse
 ```
 
 Traverse is a free, open-source Mac file explorer with tabs, panes, server
-connections, archives and a native text editor. This release requires **Apple
-silicon and macOS 15 or later**. Intel and Universal builds are not yet available.
+connections, archives and a native text editor. Traverse 0.2.0 supports **Apple Silicon and Intel Macs on macOS 15 or later**.
+Homebrew selects the matching signed package automatically. Intel editor, ZIP
+and scanner checks passed under Rosetta; physical Intel testing is still welcome.
 
 The cask downloads the same signed, notarized installer offered on
 [GitHub Releases](https://github.com/Respawn-Studios/Traverse/releases), with its
