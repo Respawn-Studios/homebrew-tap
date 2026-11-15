@@ -1,8 +1,8 @@
 cask "traverse" do
-  version "0.1.0,93"
-  sha256 "4512adfe4b81af80b4eb28c169a3ea3ffd3fe66af23c31174af38ea0d4ed2238"
+  version "0.1.1,94"
+  sha256 "16fcf1df778a96ac744bbc18500d479bf9e5a17bb6028bfba08603678186b603"
 
-  url "https://respawn-studios.com/products/traverse/direct-updates/archives/4512adfe4b81af80b4eb28c169a3ea3ffd3fe66af23c31174af38ea0d4ed2238.dmg"
+  url "https://respawn-studios.com/products/traverse/direct-updates/archives/16fcf1df778a96ac744bbc18500d479bf9e5a17bb6028bfba08603678186b603.dmg"
   name "Traverse"
   desc "Native macOS file explorer"
   homepage "https://respawn-studios.com/products/traverse/"
