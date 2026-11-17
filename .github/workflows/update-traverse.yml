@@ -1,0 +1,30 @@
+name: Update Traverse cask
+
+on:
+  schedule:
+    - cron: "23 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: traverse-cask-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Check release validation
+        run: python3 -B -m unittest discover -s tests -v
+      - name: Verify full release and update cask
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python3 -B tools/update_traverse.py --publish

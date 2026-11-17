@@ -7,7 +7,7 @@ brew install --cask respawn-studios/tap/traverse
 ```
 
 Traverse is a free, open-source Mac file explorer with tabs, panes, server
-connections, archives and a native text editor. Traverse 0.2.0 supports **Apple Silicon and Intel Macs on macOS 15 or later**.
+connections, archives and a native text editor. It supports **Apple Silicon and Intel Macs on macOS 15 or later**.
 Homebrew selects the matching signed package automatically. Intel editor, ZIP
 and scanner checks passed under Rosetta; physical Intel testing is still welcome.
 
@@ -46,6 +46,28 @@ brew install --cask --adopt respawn-studios/tap/traverse
 - [Buy the studio a coffee](https://buymeacoffee.com/respawnstudios)
 
 Support is optional. Every Traverse feature stays free.
+
+## Keeping the tap current
+
+The [update workflow](.github/workflows/update-traverse.yml) checks the latest
+full Traverse release hourly. It can also be run manually from Actions.
+Previews and drafts stay out of the tap. Before changing the cask, it checks
+both architecture catalogs, their matching source kit, GitHub asset digests and
+the actual installers served by the download routes. A release-specific
+publisher acceptance comment in the official release notes must also cover the cask, both installer hashes, parsing for
+both architectures and a real ARM install with cold startup. An incomplete release
+leaves the existing cask in place and makes the workflow fail visibly. The comment
+records the publisher’s completed checks; it is separate from immutable asset
+metadata and is not an independent test service.
+
+The workflow uses this repository's temporary GitHub token; no personal token
+or extra secret is needed. Homebrew users still choose when to run `brew update`
+and `brew upgrade`. To check a proposed update locally without publishing:
+
+```sh
+python3 -B -m unittest discover -s tests -v
+python3 -B tools/update_traverse.py
+```
 
 The original cask and documentation in this tap are provided under the
 [MIT license](LICENSE). Traverse itself is licensed under GPLv3, with third-party
