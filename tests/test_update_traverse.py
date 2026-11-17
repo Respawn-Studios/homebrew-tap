@@ -104,6 +104,15 @@ class ReleaseUpdateTests(unittest.TestCase):
         self.assertFalse(updater.update(self.release, self.client, self.target))
         self.assertFalse(any(url.endswith(".dmg") for url in self.client.requests))
 
+    def test_browser_crlf_release_body_updates_both_architectures(self):
+        self.release["body"] = self.release["body"].replace("\n", "\r\n")
+        self.assertTrue(updater.update(self.release, self.client, self.target))
+        self.assertEqual(self.target.read_bytes(), updater.render("0.3.0", "99", self.catalogs))
+
+    def test_browser_crlf_quoted_record_is_refused(self):
+        self.release["body"] = ("```text\n" + self.release["body"]).replace("\n", "\r\n")
+        self.refuse("Quoted")
+
     def test_corrupt_second_image_keeps_original(self):
         item = self.catalogs["x86_64"]["artifact"]
         self.client.responses[updater.image_url("x86_64", item["sha256"])] = b"bad"

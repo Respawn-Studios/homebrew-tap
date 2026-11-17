@@ -197,6 +197,8 @@ def accepted_cask(release, client, version, build, lanes, recipe):
     body = release.get("body")
     require(isinstance(body, str) and body.count(marker) == 1,
             "Release needs exactly one Homebrew acceptance record")
+    # GitHub's browser form submits textarea line endings as CRLF.
+    body = body.replace("\r\n", "\n")
     match = re.search(r"(?m)^<!-- traverse-homebrew-acceptance-v1\n([^\n]{1,4096})\n-->\s*\Z", body)
     require(match is not None, "Malformed Homebrew acceptance record")
     prefix = body[:match.start()]
