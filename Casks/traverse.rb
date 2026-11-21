@@ -1,14 +1,14 @@
 cask "traverse" do
-  version "0.3.0,99"
+  version "0.4.0,105"
 
   on_arm do
-    sha256 "0d6fd5ed62a2f1cee2ed2acbf0de0399dce0c06833f8feec1bfa3e196d635fe2"
-    url "https://respawn-studios.com/products/traverse/direct-updates/archives/0d6fd5ed62a2f1cee2ed2acbf0de0399dce0c06833f8feec1bfa3e196d635fe2.dmg"
+    sha256 "d9fe77874d818dbac33d817bdaf3f2a536a7ff65fe99b04867190bef6ea192c2"
+    url "https://respawn-studios.com/products/traverse/direct-updates/archives/d9fe77874d818dbac33d817bdaf3f2a536a7ff65fe99b04867190bef6ea192c2.dmg"
   end
 
   on_intel do
-    sha256 "a38603594e65410d5763fc40ee0873e2245e62b1ca4a5a80e13305a066fe911b"
-    url "https://respawn-studios.com/products/traverse/direct-updates-intel/archives/a38603594e65410d5763fc40ee0873e2245e62b1ca4a5a80e13305a066fe911b.dmg"
+    sha256 "bd61aecc2137b0fef1f9ae4230c4fb2f9c6c7a7c05130a2886aa4ab64839d6fc"
+    url "https://respawn-studios.com/products/traverse/direct-updates-intel/archives/bd61aecc2137b0fef1f9ae4230c4fb2f9c6c7a7c05130a2886aa4ab64839d6fc.dmg"
   end
 
   name "Traverse"
